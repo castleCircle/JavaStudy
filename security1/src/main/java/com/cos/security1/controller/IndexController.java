@@ -53,14 +53,6 @@ public class IndexController {
 
     @PostMapping("/join")
     public String join(User user){
-//        System.out.println(user);
-//        user.setRole("ROLE_USER");
-//
-//        String rawPassword = user.getPassword();
-//        String encPassword = bCryptPasswordEncoder.encode(rawPassword);
-//        user.setPassword(encPassword);
-//
-//        userRepository.save(user); // 회원가입 잘됨..비밀번호 : 1234 => 시큐리티로 로그인 할 수없음. 이유는 패스워드ㅁ 암호화가 안되어있음
 
         user.setRole("ROLE_USER");
         String rawPassword = user.getPassword();
