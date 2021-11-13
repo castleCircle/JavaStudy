@@ -18,9 +18,40 @@ fun main(args: Array<String>) {
     println(add(1,2,3))
 
     println(addString(1,"s"));
+
+
+    //if
+
+    a = 7
+
+    if(a > 10){
+        println("a는 10보다 크다")
+    }else{
+        println("a는 10보다 작다")
+    }
+
+    doWhen(1);
+    doWhen(2)
+    doWhen("saaddsa")
+    var tt = doWhen(1);
+    println(tt.javaClass)
+}
+
+fun doWhen(a:Any) : Any{
+    val test = when(a){
+        1 -> println("정수 1입니다.")
+        "DiMo" -> println("디모의 코틀린 강좌")
+        is Long -> println("Long 타입")
+        !is String -> println("String 타입")
+        else -> "없음"
+
+    }
+
+    return test;
 }
 
 fun add(a:Int, b:Int, c:Int) = a + b + c
+
 
 fun addString(b:Long, c:String) : String{
     return b.toString() + c;
