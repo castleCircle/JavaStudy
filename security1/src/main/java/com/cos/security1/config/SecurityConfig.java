@@ -1,5 +1,7 @@
 package com.cos.security1.config;
 
+import com.cos.security1.config.oauth.PrincipalOauth2UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -8,10 +10,17 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+//1.코드받기 (인증) 2.액세트 토큰(권한)
+//3.사용자 프로필 정보를 가져오고 4-1. 그 정보를 토대로 회원가입을 자동으로 진행 시키기도 함
+//4-2 (이메일,전화번호,이름ㅁ,아이디) 쇼핑몰 -> 집주소 , 백화점몰 -> vip 등급, 일반 등급
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true,prePostEnabled = true) // secured annotaion 활성화 , preAuthorize , postAuthorize 어노테이션 활성화
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private PrincipalOauth2UserService principalOauth2UserService;
 
     //해당 메서드의 리턴되는 오브젝트를 IOC에 등록해준다.
     @Bean
@@ -34,7 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .and()
                 .oauth2Login()
-                .loginPage("/loginForm"); // 구글 로그인이 완료된 뒤의 후처리가 필요함
+                .loginPage("/loginForm")
+                .userInfoEndpoint()
+                .userService(principalOauth2UserService); // 구글 로그인이 완료된 뒤의 후처리가 필요함 , Tip. 코드X, ( 액세스 토근 + 사용자 프로필 정보 O )
 
     }
 }
