@@ -11,9 +11,15 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
     //구글로부터 받은 uesrRequest 데이터에 대한 후처리되는 함수
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
-        System.out.println("getClientRegistration:" + userRequest.getClientRegistration());
+        System.out.println("getClientRegistration:" + userRequest.getClientRegistration()); // registartionId로 어떤 Oauth로 로그인 했는지 알수 있음.
         System.out.println("getAccessToken:" + userRequest.getAccessToken().getTokenValue());
+
+        //구글 로그인 버튼 클릭  -> 구글 로그인창 -> 로그인을 완료 -> code를 리턴(Oauth-client라이브러리) -> AccessToken요청
+        //userRequest정보 -> loadUser 함수 -> 회원프로필 -> 구글로부터 회원프로필 받아준다.
+
         System.out.println("getAttributes:" + super.loadUser(userRequest).getAttributes());
+
+        OAuth2User oAuth2User = super.loadUser(userRequest);
         return super.loadUser(userRequest);
     }
 }
