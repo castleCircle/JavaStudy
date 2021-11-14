@@ -33,8 +33,31 @@ fun main(args: Array<String>) {
     doWhen(1);
     doWhen(2)
     doWhen("saaddsa")
-    var tt = doWhen(1);
-    println(tt.javaClass)
+
+    a = 0;
+
+    while(a<5){
+        a++;
+    }
+
+    println(a);
+
+    do{
+        a++;
+    }while(a<10);
+
+
+    var q = 20;
+
+    for(i in 0..q step 2){
+        print(i);
+    }
+
+    println()
+
+    for(i in 10 downTo 1){
+        print(i)
+    }
 }
 
 fun doWhen(a:Any) : Any{
