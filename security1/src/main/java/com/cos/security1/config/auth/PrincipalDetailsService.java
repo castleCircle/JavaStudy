@@ -21,6 +21,7 @@ public class PrincipalDetailsService implements UserDetailsService {
 
     // 시큐리티 session(내부 Authentication(내부 UserDetails))
     // loadUserBy가 로그인을 시켜줌
+    // 함수 종료시 @AuthenticationPrincipal 만들어진다.
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //username 중요!  username default
