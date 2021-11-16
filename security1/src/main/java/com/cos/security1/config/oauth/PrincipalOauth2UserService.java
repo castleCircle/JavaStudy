@@ -26,7 +26,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         System.out.println("getClientRegistration:" + userRequest.getClientRegistration()); // registartionId로 어떤 Oauth로 로그인 했는지 알수 있음.
         System.out.println("getAccessToken:" + userRequest.getAccessToken().getTokenValue());
-        
+
         System.out.println("getAccessToken:" + userRequest.getAccessToken().getTokenValue());
 
         OAuth2User oAuth2User = super.loadUser(userRequest);
