@@ -71,3 +71,37 @@ title : RFC
 네트워크 간의 연결을 하기 위해 서로의 약속을 정하고자 점점 만들어가는것 RFC
 www : RFC의 문서로 이루어져있다고 해도 무방
 JWT는 RFC 7519번 문서에 존재하는 내용이다.
+
+title : JSON 웹 토큰
+
+- 서명 된 토큰에 중점을 둔 기술
+
+xxxxx.yyyyy.zzzzz
+
+header : xxxxx
+- alg 무슨 알고리즘인지와 타입이 존재
+- base64Url로 인코딩 되어있음
+
+payload : yyyyy
+- 클레임을 가지고 있다
+- 3가지 유형이 있다.
+  - 등록 된 클레임
+  - 공개 소유권 주장
+  - 개인 클레임
+  - base64Url로 인코딩되어있음
+
+signature(서명) : zzzzz
+- header + payload + secret(얘는 서버만 안다고 한다)
+  - HMAC + SHA256 방식이라고 함
+  - header에 rsa의 방식으로 signature을 변경할수 있다.
+    - 만약 그렇게 되면 signature의 secret키가 필요없다.
+    - 개인키로 잠그고 공개키로 열던지 , 공개키로 잠그로 개인키로 열면 된다.
+- base64Url로 인코딩 되어있음
+
+결론)
+만약 jwt 토큰 방식으로 인증을 한다고 하면 원리는 
+클라이언트에서 서버로 로그인 시도를 하면 서버는 JWT 토큰을 만들어서 응답을 주고
+jwt 응답은 로컬 스토리지에 저장된다고 한다. 
+그 다음의 요청은 클라이언트의 Jwt 토큰이 서버로 보내게 되면 서버는 payload를 디코딩해서 데이터를 확인하고
+signature의 값과 header + payload + secret(서버의 시크릿값)을 비교해서 같으면 서명 됬다고 판단한다. 
+
