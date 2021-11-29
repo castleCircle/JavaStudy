@@ -4,7 +4,7 @@ import user.domain.User;
 
 import java.sql.*;
 
-public abstract class UserDao {
+public class UserDao {
 
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
