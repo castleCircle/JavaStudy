@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Main {
   public static void main(String[] args) {
@@ -17,12 +18,12 @@ public class Main {
 //      }
 //    };
 
-    Function<String,Integer> toInt = (value) -> Integer.parseInt(value);
+    Function<String, Integer> toInt = (value) -> Integer.parseInt(value);
 
     final Integer number = toInt.apply("100");
     System.out.println(number);
 
-    final Function<Integer,Integer> identity = Function.identity();
+    final Function<Integer, Integer> identity = Function.identity();
 
     System.out.println(identity.apply(999));
 
@@ -35,16 +36,40 @@ public class Main {
     final Predicate<Integer> isPositive = new Predicate<Integer>() {
       @Override
       public boolean test(Integer integer) {
-        if(integer > 0){
+        if (integer > 0) {
           return true;
         }
         return false;
       }
     };
 
-    List<Integer> numbers= Arrays.asList(-5,-4,-3,-2,-1,0,1,2,3,4,5);
-    var positiveList = filter(numbers,isPositive);
+    List<Integer> numbers = Arrays.asList(-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5);
+    var positiveList = filter(numbers, isPositive);
     System.out.println(positiveList);
+
+
+    //Supplier는 lazy 가능하다.
+    Supplier<String> supplierTest = new Supplier<String>() {
+      @Override
+      public String get() {
+        return "test";
+      }
+    };
+
+    System.out.println(supplierTest.get());
+    testFunction(1,multiCalculate());
+    testFunction(0,multiCalculate());
+    testFunction(-1,multiCalculate());
+
+    Supplier<String> cal = ()->{
+      //long calculate
+      return "long Cal";
+    };
+
+    supplierTestFunction(1,cal);
+    supplierTestFunction(0,cal);
+    supplierTestFunction(-1,cal);
+
   }
 
   private static <T> List<T> filter(List<T> list , Predicate<T> filter){
@@ -55,6 +80,28 @@ public class Main {
       }
     }
     return result;
+  }
+
+
+  private static String multiCalculate(){
+    //10초 걸리는 연산
+    return "hello";
+  }
+
+  private static void testFunction(Integer value, String result){
+    if(value > 0 ){
+      System.out.println("multiCalculate : " + result);
+    }else{
+      System.out.println("minus");
+    }
+  }
+
+  private static void supplierTestFunction(Integer value,Supplier<String> supplier){
+    if(value > 0){
+      System.out.println("multiCalculate : " + supplier.get());
+    }else{
+      System.out.println("minus");
+    }
   }
 
 }
