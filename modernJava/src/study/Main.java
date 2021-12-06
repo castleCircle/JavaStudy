@@ -57,6 +57,8 @@ public class Main {
     printIfValidSupplier(-1,()->getVeryExpensiveValue());
     printIfValidSupplier(-2,()->getVeryExpensiveValue());
 
+
+
   }
 
   private static String getVeryExpensiveValue(){
