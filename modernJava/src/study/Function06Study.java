@@ -8,6 +8,7 @@ interface FunctionTest1<T1,T2,T3,R>{
 public class Function06Study {
 
   public static void main(String[] args) {
+    System.out.println("test");
     printlnTest(11,22,33,(t1,t2,t3)->{
       return String.valueOf(t1+t2+t3);
     });
