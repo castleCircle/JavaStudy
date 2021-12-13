@@ -25,11 +25,25 @@ public class StreamExamples2 {
 
     System.out.println("Functional Result: " +
     numbers.stream()
-        .filter(i-> i > 3)
-        .filter(i-> i <9)
-        .map(number -> number * 2)
-        .filter(number -> number > 100)
+        .filter(i-> {
+          System.out.println("number > 3");
+          return i > 3;
+        })
+        .filter(i-> {
+          System.out.println("number < 9");
+          return i < 9;
+        })
+        .map(number -> {
+          System.out.println("number * 2");
+          return number * 2;
+        })
+        .filter(number -> {
+          System.out.println("number > 10");
+          return number > 10;
+        })
         .findFirst().orElseThrow( () -> new Exception("test")));
+
+    //- 08 Stream API - 03 Stream API 02 - Stream vs 예전방식
 
   }
 }
