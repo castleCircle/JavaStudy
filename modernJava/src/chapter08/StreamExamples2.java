@@ -3,6 +3,8 @@ package chapter08;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class StreamExamples2 {
@@ -44,6 +46,28 @@ public class StreamExamples2 {
         .findFirst().orElseThrow( () -> new Exception("test")));
 
     //- 08 Stream API - 03 Stream API 02 - Stream vs 예전방식
+    final List<Integer> greaterThan3 = filter(numbers,i->i > 3);
+    final List<Integer> lessThan9 = filter(greaterThan3,i->i<9);
+    final List<Integer> doubled = map(lessThan9, i->i*2);
 
   }
+
+  private static <T> List<T> filter(List<T> list, Predicate<T> predicate){
+    final List<T> result= new ArrayList<>();
+    for(final T t : list){
+      if(predicate.test(t)){
+        result.add(t);
+      }
+    }
+    return result;
+  }
+
+  private static <T,R> List<R> map(List<T> list, Function<T,R> mapper){
+    final List<R> result= new ArrayList<>();
+    for(final T t : list){
+      result.add(mapper.apply(t));
+    }
+    return result;
+  }
+
 }
