@@ -10,6 +10,8 @@ import java.util.stream.Stream;
 
 public class StreamExamplesParallelPractical {
 
+  //parallelStream 연산은 무조건 빠른것은 아니다.
+
   private static final String[] priceString = {"1.0","100.99","35.75","21.30","88.00"};
   private static final BigDecimal[] targetPRices = {new BigDecimal("30"),new BigDecimal("20"),
       new BigDecimal("31")};
