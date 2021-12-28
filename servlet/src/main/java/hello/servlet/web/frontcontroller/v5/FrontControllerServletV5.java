@@ -2,11 +2,9 @@ package hello.servlet.web.frontcontroller.v5;
 
 import hello.servlet.web.frontcontroller.ModelView;
 import hello.servlet.web.frontcontroller.MyView;
-import hello.servlet.web.frontcontroller.v3.ControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberFormControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberListControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberSaveControllerV3;
-import hello.servlet.web.frontcontroller.v4.ControllerV4;
 import hello.servlet.web.frontcontroller.v5.adapter.ControllerV3HandlerAdapter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,14 +42,14 @@ public class FrontControllerServletV5 extends HttpServlet {
   protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    Object handler = getHandler(request);
+    Object handler = getHandlerAdapter(request);
 
     if(handler == null){
       response.setStatus(HttpServletResponse.SC_NOT_FOUND);
       return;
     }
 
-    MyHandlerAdapter adapter = getHandler(handler);
+    MyHandlerAdapter adapter = getHandlerAdapter(handler);
 
     ModelView mv = adapter.handle(request,response,handler);
 
@@ -61,7 +59,7 @@ public class FrontControllerServletV5 extends HttpServlet {
     view.render(mv.getModel(),request,response);
   }
 
-  private MyHandlerAdapter getHandler(Object handler) {
+  private MyHandlerAdapter getHandlerAdapter(Object handler) {
     for (MyHandlerAdapter adapter : handlerAdapters) {
       if(adapter.supports(handler)){
         return adapter;
@@ -75,7 +73,7 @@ public class FrontControllerServletV5 extends HttpServlet {
     return new MyView("/WEB-INF/views/" + viewName + ".jsp");
   }
 
-  private Object getHandler(HttpServletRequest request) {
+  private Object getHandlerAdapter(HttpServletRequest request) {
     String url = request.getRequestURI();
     return handlerMappingMap.get(url);
   }
