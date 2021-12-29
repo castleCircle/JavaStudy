@@ -5,7 +5,11 @@ import hello.servlet.web.frontcontroller.MyView;
 import hello.servlet.web.frontcontroller.v3.controller.MemberFormControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberListControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberSaveControllerV3;
+import hello.servlet.web.frontcontroller.v4.controller.MemberFormControllerV4;
+import hello.servlet.web.frontcontroller.v4.controller.MemberListControllerV4;
+import hello.servlet.web.frontcontroller.v4.controller.MemberSaveControllerV4;
 import hello.servlet.web.frontcontroller.v6.adapter.ControllerV3TestHandlerAdapter;
+import hello.servlet.web.frontcontroller.v6.adapter.ControllerV4TestHandlerAdapter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,10 +36,15 @@ public class FrontControllerServletV6 extends HttpServlet {
     this.handlerMappingMap.put("/front-controller/v6/v3/members/new-form",new MemberFormControllerV3());
     this.handlerMappingMap.put("/front-controller/v6/v3/members/save",new MemberSaveControllerV3());
     this.handlerMappingMap.put("/front-controller/v6/v3/members",new MemberListControllerV3());
+
+    this.handlerMappingMap.put("/front-controller/v6/v4/members/new-form",new MemberFormControllerV4());
+    this.handlerMappingMap.put("/front-controller/v6/v4/members/save",new MemberSaveControllerV4());
+    this.handlerMappingMap.put("/front-controller/v6/v4/members",new MemberListControllerV4());
   }
 
   private void initHandlerAdapters(){
     handlerAdapters.add(new ControllerV3TestHandlerAdapter());
+    handlerAdapters.add(new ControllerV4TestHandlerAdapter());
   }
 
   @Override
