@@ -31,6 +31,7 @@ public class MappingController {
 
   @PostMapping(value = "/mapping-consume",consumes = MediaType.APPLICATION_JSON_VALUE)
   public String mappingConsumes(){
+    System.out.println("test");
     return "ok";
   }
 }
