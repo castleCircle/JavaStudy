@@ -1,5 +1,6 @@
 package hello.springmvc.basic.request;
 
+import hello.springmvc.basic.HelloData;
 import java.io.IOException;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -69,6 +71,14 @@ public class RequestParamController {
   public String requestValueParamMap(@RequestParam MultiValueMap<String,Object> paramMap){
     System.out.println("test");
     log.info("userNAme={},age={}",paramMap.get("username"),paramMap.get("age"));
+    return "ok";
+  }
+
+  @ResponseBody
+  @RequestMapping("/model-attribute-v1")
+  public String modelAttributeV1(@ModelAttribute HelloData helloData){
+    log.info("hello: {}",helloData);
+
     return "ok";
   }
 
