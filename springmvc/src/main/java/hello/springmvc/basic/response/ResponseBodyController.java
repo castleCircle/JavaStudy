@@ -29,4 +29,10 @@ public class ResponseBodyController {
     helloData.setAge(20);
     return helloData;
   }
+
+  /**
+   * @ResponseBody , HttpEntity
+   * 응답을 내보낼때도 ReturnValueHandler가 있다.
+   * 이떄도 Http 메시지 컨버터를 사용해서 보낸다.
+   */
 }

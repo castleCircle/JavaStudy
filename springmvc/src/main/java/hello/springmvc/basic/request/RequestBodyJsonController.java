@@ -72,4 +72,13 @@ public class RequestBodyJsonController {
   //@ResponseBody
   //객체 => HTTP 컨버터 => JSON 요청
 
+  /**
+   * @RequestBody , HttpEntity
+   * 핸들러 어댑터에서 Controller(핸들러)를 실행하기전에 컨트롤러의 메소드 아규먼트에 적절한 형태로 데이터를 주기 위해
+   * Argument Resolver가 동작을 하게 된다.
+   * 그때 Http 메시지 컨버터를 사용한다.
+   * 메시지 컨버터의 종류로는 byte, String , 객체(사용자지정) ... 등이 있다.
+   * 객체는 content-type이 application/json 이여야 하지만 byte, String은 미디어 타입이 상관없다.
+   */
+
 }
