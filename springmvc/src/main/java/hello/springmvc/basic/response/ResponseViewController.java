@@ -21,7 +21,7 @@ public class ResponseViewController {
     return "response/hello";
   }
     @RequestMapping("/response/hello")
-    public String responseViewV3(Model model){
+    public void responseViewV3(Model model){
         model.addAttribute("data", "hello!");
     }
 
