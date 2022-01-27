@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/basic/items")
@@ -40,37 +39,16 @@ public class BasicItemController {
     return "basic/addForm";
   }
 
-  //  @PostMapping("/add")
-  public String addItemV1(@RequestParam String itemName,
-      @RequestParam int price,
-      @RequestParam Integer quantity, Model model) {
-
-    Item item = new Item();
-    item.setItemName(itemName);
-    item.setPrice(price);
-    item.setQuantity(quantity);
-
-    itemRepository.save(item);
-
-    model.addAttribute("item", item);
-    return "basic/item";
-  }
-
 //  @PostMapping("/add")
-//  public String addItemVw(@ModelAttribute("item") Item item, Model model) {
-//    //ModelAttribute는 요청 파라미터를 객체에 담는 역할을 하며
-//    //Model에 담는 역할을 한다.
-//    //@ModelAttribute("item" : name) , name을 빼먹으면 받는 객체의 클래스명의 첫문자는 소문자인 naming을 default로 따라간다.
+//  public String addItemV4(Item item) {
 //    itemRepository.save(item);
-//
-////    model.addAttribute("item", item);
 //    return "basic/item";
 //  }
 
   @PostMapping("/add")
-  public String addItemV4(Item item) {
+  public String addItemV5(Item item) {
     itemRepository.save(item);
-    return "basic/item";
+    return "redirect:/basic/items/" + item.getId();
   }
 
   @GetMapping("/{itemId}/edit")
