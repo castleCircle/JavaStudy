@@ -164,7 +164,7 @@ public class ValidationItemControllerV2 {
 //    }
 
     @PostMapping("/add")
-    public String addItemV4(@ModelAttribute Item item, RedirectAttributes redirectAttributes,BindingResult bindingResult) {
+    public String addItemV4(@ModelAttribute Item item,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         log.info("bindingResult={}",bindingResult);
         log.info("objectName={}",bindingResult.getObjectName());
@@ -194,6 +194,7 @@ public class ValidationItemControllerV2 {
 
         //검증에 실패하면 다시 입력 폼으로
         if(bindingResult.hasErrors()){
+            log.error("=======");
             log.error("errors: {}" , bindingResult);
             return "validation/v2/addForm";
         }
