@@ -4,6 +4,7 @@ import hello.login.domain.member.Member;
 import hello.login.domain.member.MemberRepository;
 import hello.login.web.session.SessionManager;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -40,17 +41,37 @@ public class HomeController {
 //        return "loginHome";
 //    }
 
+//    @GetMapping("/")
+//    public String homeLogin(HttpServletRequest request, Model model){
+//
+//        Member member = (Member)sessionManager.getSession(request);
+//
+//
+//        if(member == null){
+//            return "home";
+//        }
+//
+//        model.addAttribute("member",member);
+//        return "loginHome";
+//    }
+
     @GetMapping("/")
-    public String homeLogin(HttpServletRequest request, Model model){
+    public String homeLoginV3(HttpServletRequest request, Model model){
 
-        Member member = (Member)sessionManager.getSession(request);
-
-
-        if(member == null){
+        HttpSession session = request.getSession(false);
+        if(session == null){
             return "home";
         }
 
-        model.addAttribute("member",member);
+        Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
+
+
+        //세션에 회원 데이터가 없으면 home
+        if(loginMember == null){
+            return "home";
+        }
+
+        model.addAttribute("member",loginMember);
         return "loginHome";
     }
 }
