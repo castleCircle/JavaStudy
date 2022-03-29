@@ -9,6 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Transcation은 uncheckedException이 터질경우 try_catch를 해도 rollback 이 된다.
+ * 그러니 required_new
+ */
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
