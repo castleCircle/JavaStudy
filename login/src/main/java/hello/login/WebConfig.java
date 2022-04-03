@@ -1,6 +1,7 @@
 package hello.login;
 
 import hello.login.web.filter.LogFilter;
+import hello.login.web.filter.LogTestFilter;
 import hello.login.web.filter.LoginCheckFilter;
 import javax.servlet.Filter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -31,4 +32,5 @@ public class WebConfig {
 
     return filterFilterRegistrationBean;
   }
+
 }
