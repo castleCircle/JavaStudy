@@ -92,7 +92,7 @@ public class HomeController {
 //    }
 
     @GetMapping("/")
-    public String homeLoginV3ArgumentResolver(@Login Member loginMember,Model model){
+    public String homeLoginV3ArgumentResolver(@Login Member loginMember,MemberRepository s ,Model model){
 
         log.info("COME");
 
