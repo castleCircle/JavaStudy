@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ServletExController {
 
+  //내가 의도하지 않은 예외는 500
+  //내가 의도해서 reponse.error는 내가 담아준 코드에 맞도록 에러가 남
+
   @GetMapping("/error-ex")
   public void errorEx(){
     throw new RuntimeException("예외 발생");
