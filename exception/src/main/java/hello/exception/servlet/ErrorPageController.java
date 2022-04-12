@@ -55,11 +55,8 @@ public class ErrorPageController {
     result.put("message",ex.getMessage());
 
     log.info("result: {}" ,result);
-    ApiExceptionController.
-
     Integer statusCode = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
-//    return new ResponseEntity<>(result, HttpStatus.ACCEPTED.valueOf(statusCode));
-    return new ResponseEntity<>(result, HttpStatus.URI_TOO_LONG);
+    return new ResponseEntity<>(result, HttpStatus.ACCEPTED.valueOf(statusCode));
   }
 
   private void printErrorInfo(HttpServletRequest request){
