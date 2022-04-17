@@ -1,5 +1,6 @@
 package hello.exception.api;
 
+import hello.exception.exception.TestException;
 import hello.exception.exception.UserException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +25,11 @@ public class ApiExceptionController {
     }
 
     if(id.equals("user-ex")){
-      throw  new UserException("사용자 오류");
+      throw new UserException("사용자 오류");
+    }
+
+    if(id.equals("test")){
+      throw new TestException("테스트 오류");
     }
 
     return new MemberDto(id,"hello " + id);
