@@ -19,4 +19,11 @@ public class HelloTraceV1Test {
     trace.exception(status,new IllegalStateException());
   }
 
+  @Test
+  void test(){
+   HelloTraceV1 trace = new HelloTraceV1();
+    final TraceStatus order = trace.begin("order");
+    trace.end(order);
+  }
+
 }
