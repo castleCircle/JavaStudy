@@ -78,4 +78,34 @@ public class ContextV1Test {
     ContextV1 contextV2 = new ContextV1(strategy2);
     contextV2.execute();
   }
+
+  @Test
+  void strategyV2(){
+    ContextV1 contextV1 = new ContextV1(new Strategy() {
+      @Override
+      public void call() {
+        log.info("비지니스 로직1 실행");
+      }
+    });
+
+    contextV1.execute();
+
+    ContextV1 contextV2 = new ContextV1(new Strategy() {
+      @Override
+      public void call() {
+        log.info("비지니스 로직2 실행");
+      }
+    });
+
+    contextV2.execute();
+  }
+
+  @Test
+  void strategyV4(){
+    ContextV1 contextV1 = new ContextV1(()-> log.info("비지니스 1실행"));
+    contextV1.execute();
+
+    ContextV1 contextV2 = new ContextV1(()-> log.info("비지니스 2실행"));
+    contextV2.execute();
+  }
 }
