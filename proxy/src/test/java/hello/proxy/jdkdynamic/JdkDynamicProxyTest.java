@@ -34,6 +34,18 @@ public class JdkDynamicProxyTest {
 
     log.info("targetClass={}",target.getClass());
     log.info("proxyClass={}",proxy.getClass());
+    log.info("classLoader={}",BInterface.class.getClassLoader());
+  }
+
+  @Test
+  void dynamicBTest(){
+    BInterface target = new BImpl();
+    TimeInvocationHandler handler = new TimeInvocationHandler(target);
+
+    BInterface proxy = (BInterface) Proxy.newProxyInstance(BInterface.class.getClassLoader(),new Class[]{BInterface.class},handler);
+
+    proxy.test();
+
   }
 
 }
