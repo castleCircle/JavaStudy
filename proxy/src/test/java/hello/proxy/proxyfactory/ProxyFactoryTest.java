@@ -1,6 +1,7 @@
 package hello.proxy.proxyfactory;
 
 import hello.proxy.common.advice.TimeAdvice;
+import hello.proxy.common.advice.TimeTestAdvice;
 import hello.proxy.common.service.ServiceImpl;
 import hello.proxy.common.service.ServiceInterface;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,20 @@ public class ProxyFactoryTest {
     Assertions.assertThat(AopUtils.isAopProxy(proxy)).isTrue();
     Assertions.assertThat(AopUtils.isJdkDynamicProxy(proxy)).isTrue();
     Assertions.assertThat(AopUtils.isCglibProxy(proxy)).isFalse();
+  }
+
+  @Test
+  @DisplayName("proxyFactory interFace 구현")
+  public void interfaceTestProxy(){
+    ServiceInterface target = new ServiceImpl();
+    ProxyFactory proxyFactory = new ProxyFactory(target);
+    proxyFactory.addAdvice(new TimeTestAdvice());
+
+    final ServiceInterface proxy = (ServiceInterface) proxyFactory.getProxy();
+    log.info("targetClass={}",target.getClass());
+    log.info("proxyyClass={}",proxy.getClass());
+    proxy.save();
+
   }
 
 }
