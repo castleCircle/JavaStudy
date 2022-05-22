@@ -81,4 +81,23 @@ public class ProxyFactoryTest {
     Assertions.assertThat(AopUtils.isCglibProxy(proxy)).isTrue();
   }
 
+  @Test
+  void proxyTargetClassTest(){
+    ServiceInterface target = new ServiceImpl();
+    ProxyFactory proxyFactory = new ProxyFactory(target);
+    proxyFactory.setProxyTargetClass(true);
+    //default false이고
+    //true를 하게 되면 jdk, cglib둘중 무조건 cglib를 사용한다.
+    proxyFactory.addAdvice(new TimeAdvice());
+
+    final ServiceInterface proxy = (ServiceInterface)proxyFactory.getProxy();
+
+    proxy.save();
+
+    Assertions.assertThat(AopUtils.isAopProxy(proxy)).isTrue();
+    Assertions.assertThat(AopUtils.isCglibProxy(proxy)).isTrue();
+
+
+  }
+
 }
