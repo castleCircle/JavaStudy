@@ -23,4 +23,18 @@ public class CglibTest {
     proxy.call();
   }
 
+  @Test
+  void cglib1(){
+    ConcreateService concreateService = new ConcreateService();
+
+    Enhancer enhancer = new Enhancer();
+    enhancer.setSuperclass(ConcreateService.class);
+    enhancer.setCallback(new TimeMethodInterceptor(concreateService));
+    final ConcreateService concreateService1 = (ConcreateService) enhancer.create();
+
+    concreateService1.call();
+
+    enhancer.create();
+  }
+
 }
