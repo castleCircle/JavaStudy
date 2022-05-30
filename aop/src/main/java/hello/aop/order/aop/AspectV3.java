@@ -11,13 +11,34 @@ import org.aspectj.lang.annotation.Pointcut;
 public class AspectV3 {
 
   @Pointcut("execution(* hello.aop.order..*(..))")
-  private void orderInfo(){}
+  private void allOrder(){}
 
-  @Around("orderInfo()")
+  //클래스 이름이 패턴이 *Service
+  @Pointcut("execution(* *..*Service.*(..))")
+  private void allService(){}
+
+  @Around("allOrder()")
   public Object doLog(ProceedingJoinPoint joinPoint) throws  Throwable{
     log.info("==========do log========: {}",joinPoint.getSignature());
     final Object proceed = joinPoint.proceed();
     return proceed;
   }
 
+  //hello.aop.order 패키지와 하위 패키지 이면서 클래스 이름 패턴이 *Service
+  @Around("allOrder() && allService()")
+  public Object doTransaction(ProceedingJoinPoint joinPoint) throws Throwable{
+
+    try{
+      log.info("트랜잭션 시작: {}",joinPoint.getSignature());
+      final Object result = joinPoint.proceed();
+      log.info("트랜잭션 커밋: {}",joinPoint.getSignature());
+      return result;
+    }catch (Exception e){
+      log.info("트랜잭션 롤백:{}",joinPoint.getSignature());
+      throw e;
+    }finally {
+      log.info("리소스 릴리즈:{}",joinPoint.getSignature());
+    }
+
+  }
 }
