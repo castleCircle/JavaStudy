@@ -10,6 +10,14 @@ repositories {
 }
 
 dependencies {
+
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+// https://mvnrepository.com/artifact/com.guicedee.services/sl4j
+    implementation group: 'com.guicedee.services', name: 'sl4j', version: '1.0.13.4'
+
+
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
