@@ -1,0 +1,2 @@
+autocommit을 true에서 false로 변경하는 것을 트랜잭션이라고 소위 말한다.
+DB락은 먼저 도착한 세션에서 update or insert을 할경우 락을 가지게 되고 commit이 될때까지 락을 가지고 있고 commit을 처리한후 다음 도착한 세션이 락을 가지고 간다. 그떄까지 세션은 대기해야한다.
