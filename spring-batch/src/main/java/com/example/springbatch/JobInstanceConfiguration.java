@@ -36,18 +36,6 @@ public class JobInstanceConfiguration {
           @Override
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
               throws Exception {
-
-            final JobParameters jobParameters = contribution.getStepExecution().getJobExecution()
-                .getJobParameters();
-
-            jobParameters.getString("name");
-            jobParameters.getLong("seq");
-            jobParameters.getDate("date");
-            jobParameters.getDouble("age");
-
-            final Map<String, Object> jobParameters1 = chunkContext.getStepContext()
-                .getJobParameters();
-
             System.out.println("step1 was executed");
             return RepeatStatus.FINISHED;
           }
@@ -58,14 +46,7 @@ public class JobInstanceConfiguration {
   @Bean
   public Step step2(){
     return stepBuilderFactory.get("step2")
-        .tasklet(new Tasklet() {
-          @Override
-          public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
-              throws Exception {
-            System.out.println("step2 was executed");
-            return RepeatStatus.FINISHED;
-          }
-        })
+        .tasklet(new CustomTasklet())
         .build();
   }
 }
