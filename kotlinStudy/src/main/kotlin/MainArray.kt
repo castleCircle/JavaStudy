@@ -11,4 +11,9 @@ fun main(args: Array<String>){
     println(intArr.size)
     println(nullArr[0]);
     println(nullArr[3]);
+
+    var a = 1
+    var s1 = "a is $a"
+
+    println(s1);
 }
