@@ -13,7 +13,7 @@ fun main() {
     a.name = "1";
 
     a.introduce();
-  
+
 }
 
 class Person(var name:String,val birthYear:Int){

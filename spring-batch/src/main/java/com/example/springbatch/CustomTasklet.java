@@ -14,6 +14,7 @@ public class CustomTasklet implements Tasklet {
 
     System.out.println("step2 was executed");
 
+//    throw new RuntimeException("step2 failed");
     return RepeatStatus.FINISHED;
   }
 }
