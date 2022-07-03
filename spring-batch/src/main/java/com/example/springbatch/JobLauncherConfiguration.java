@@ -15,11 +15,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class JobRepositroyConfiguration {
+public class JobLauncherConfiguration {
 
   private final JobBuilderFactory jobBuilderFactory;
   private final StepBuilderFactory stepBuilderFactory;
-  private final JobExecutionListener jobExecutionListener;
 
 
   @Bean
@@ -27,7 +26,6 @@ public class JobRepositroyConfiguration {
     return jobBuilderFactory.get("job")
         .start(step1())
         .next(step2())
-        .listener(jobExecutionListener)
         .build();
   }
 
@@ -37,7 +35,7 @@ public class JobRepositroyConfiguration {
         .tasklet(new Tasklet() {
           @Override
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
-                  throws Exception {
+              throws Exception {
             return RepeatStatus.FINISHED;
           }
         })
@@ -50,7 +48,7 @@ public class JobRepositroyConfiguration {
         .tasklet(new Tasklet() {
           @Override
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
-                  throws Exception {
+              throws Exception {
             return RepeatStatus.FINISHED;
           }
         })
