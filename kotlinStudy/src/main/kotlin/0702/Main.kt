@@ -2,8 +2,9 @@ package `0702`
 
 import java.io.Serializable
 
+
 fun main(){
-    val name = "test"
+    val name = "utils"
     println(name)
 
     var test: String? = null
@@ -17,18 +18,19 @@ fun main(){
     val test2 : String by lazy { getName() }
     var test3: String = getName()
 
-    val person = Person("test", 100)
+    val person = Person("utils", 100)
     println("name:${person.name} ,age: ${person.age}" );
 
-    val person1 = Person("test",100)
+    val person1 = Person("utils",100)
 
-    val test4 = Test("test")
+    val test4 = Test("utils")
     println(test4)
 
     val test5 = Test("test1",200)
     println(test5)
 
-    Person.create("1")
+    var createPerson = utils.util.create1("10")
+    println(createPerson)
 
 }
 
