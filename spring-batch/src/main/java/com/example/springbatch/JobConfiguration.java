@@ -34,9 +34,8 @@ public class JobConfiguration {
     return jobBuilderFactory.get("batchJob")
         .start(step1())
         .next(step2())
-        .next(step3())
-//        .validator(new DefaultJobParametersValidator(new String[]{"name","count"},new String[]{"count"}))
-        .validator(new CustomerJobParametersValidator())
+        .incrementer(new RunIdIncrementer())
+//        .incrementer(new CustomJobParametersIncrementer())
         .build();
   }
 
@@ -61,21 +60,7 @@ public class JobConfiguration {
           @Override
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
               throws Exception {
-            System.out.println("step2 was executed");
-            return RepeatStatus.FINISHED;
-          }
-        })
-        .build();
-  }
-
-  @Bean
-  public Step step3(){
-    return stepBuilderFactory.get("step3")
-        .tasklet(new Tasklet() {
-          @Override
-          public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
-              throws Exception {
-            System.out.println("step3 was executed");
+//            throw new RuntimeException("step2 was failed");
             return RepeatStatus.FINISHED;
           }
         })
