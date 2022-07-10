@@ -35,8 +35,8 @@ public class JobConfiguration {
         .start(step1())
         .next(step2())
         .next(step3())
-        .validator(new DefaultJobParametersValidator(new String[]{"name","count"},new String[]{"count"}))
-//        .validator(new CustomerJobParametersValidator())
+//        .validator(new DefaultJobParametersValidator(new String[]{"name","count"},new String[]{"count"}))
+        .validator(new CustomerJobParametersValidator())
         .build();
   }
 
