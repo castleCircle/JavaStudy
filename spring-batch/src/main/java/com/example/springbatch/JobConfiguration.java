@@ -13,6 +13,7 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.job.DefaultJobParametersValidator;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
@@ -34,25 +35,8 @@ public class JobConfiguration {
         .start(step1())
         .next(step2())
         .next(step3())
-        .incrementer(new RunIdIncrementer())
-        .validator(new JobParametersValidator() {
-          @Override
-          public void validate(JobParameters parameters) throws JobParametersInvalidException {
-
-          }
-        })
-        .preventRestart()
-        .listener(new JobExecutionListener() {
-          @Override
-          public void beforeJob(JobExecution jobExecution) {
-
-          }
-
-          @Override
-          public void afterJob(JobExecution jobExecution) {
-
-          }
-        })
+        .validator(new DefaultJobParametersValidator(new String[]{"name","count"},new String[]{"count"}))
+//        .validator(new CustomerJobParametersValidator())
         .build();
   }
 
@@ -91,8 +75,6 @@ public class JobConfiguration {
           @Override
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
               throws Exception {
-//            chunkContext.getStepContext().getStepExecution().setStatus(BatchStatus.FAILED);
-//            contribution.setExitStatus(ExitStatus.STOPPED);
             System.out.println("step3 was executed");
             return RepeatStatus.FINISHED;
           }
