@@ -35,7 +35,6 @@ public class JobConfiguration {
         .start(step1())
         .next(step2())
         .incrementer(new RunIdIncrementer())
-//        .incrementer(new CustomJobParametersIncrementer())
         .build();
   }
 
