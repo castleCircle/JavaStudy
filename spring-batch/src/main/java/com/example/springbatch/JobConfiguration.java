@@ -41,13 +41,14 @@ public class JobConfiguration {
   @Bean
   public Job batchJob() {
     return jobBuilderFactory.get("batchJob")
-        .start(taskStep())
+        .start(step1())
+        .start(step2())
         .incrementer(new RunIdIncrementer())
         .build();
   }
 
   @Bean
-  public Step taskStep(){
+  public Step step1(){
     return stepBuilderFactory.get("step1")
         .tasklet(new Tasklet() {
           @Override
@@ -57,6 +58,13 @@ public class JobConfiguration {
             return RepeatStatus.FINISHED;
           }
         })
+        .build();
+  }
+
+  @Bean
+  public Step step2(){
+    return stepBuilderFactory.get("step2")
+        .tasklet(new CustomTasklet())
         .build();
   }
 
