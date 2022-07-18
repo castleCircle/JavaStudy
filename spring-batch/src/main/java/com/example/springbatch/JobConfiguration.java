@@ -42,8 +42,7 @@ public class JobConfiguration {
   public Job batchJob() {
     return jobBuilderFactory.get("batchJob")
         .start(step1())
-        .start(step2())
-        .incrementer(new RunIdIncrementer())
+        .next(step2())
         .build();
   }
 
@@ -58,13 +57,22 @@ public class JobConfiguration {
             return RepeatStatus.FINISHED;
           }
         })
+        .allowStartIfComplete(true)
         .build();
   }
 
   @Bean
   public Step step2(){
     return stepBuilderFactory.get("step2")
-        .tasklet(new CustomTasklet())
+        .tasklet(new Tasklet() {
+          @Override
+          public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
+              throws Exception {
+            System.out.println("step1 was executed");
+            throw new RuntimeException("step2 failed");
+          }
+        })
+        .startLimit(3)
         .build();
   }
 
