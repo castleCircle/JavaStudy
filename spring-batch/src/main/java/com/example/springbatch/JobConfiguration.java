@@ -12,13 +12,17 @@ import org.springframework.batch.core.JobParametersInvalidException;
 import org.springframework.batch.core.JobParametersValidator;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
+import org.springframework.batch.core.StepExecution;
+import org.springframework.batch.core.StepExecutionListener;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.job.DefaultJobParametersValidator;
 import org.springframework.batch.core.job.builder.FlowBuilder;
 import org.springframework.batch.core.job.flow.Flow;
+import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.scope.context.ChunkContext;
+import org.springframework.batch.core.step.job.DefaultJobParametersExtractor;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
@@ -40,9 +44,43 @@ public class JobConfiguration {
 
   @Bean
   public Job batchJob() {
-    return jobBuilderFactory.get("batchJob")
-        .start(step1())
+    return jobBuilderFactory.get("parentJob")
+        .start(jobStep(null))
         .next(step2())
+        .build();
+  }
+
+  @Bean
+  public Step jobStep(JobLauncher jobLauncher){
+    return this.stepBuilderFactory.get("jobStep")
+        .job(childJob())
+        .launcher(jobLauncher)
+        .parametersExtractor(jobParametersExtractor())
+        .listener(new StepExecutionListener() {
+          @Override
+          public void beforeStep(StepExecution stepExecution) {
+            stepExecution.getExecutionContext().putString("name","user1");
+          }
+
+          @Override
+          public ExitStatus afterStep(StepExecution stepExecution) {
+            return null;
+          }
+        })
+        .build();
+  }
+
+  private DefaultJobParametersExtractor jobParametersExtractor(){
+    DefaultJobParametersExtractor extractor = new DefaultJobParametersExtractor();
+    extractor.setKeys(new String[]{"name"});
+    return extractor;
+  }
+
+
+  @Bean
+  public Job childJob(){
+    return this.jobBuilderFactory.get("childJob")
+        .start(step1())
         .build();
   }
 
@@ -54,7 +92,8 @@ public class JobConfiguration {
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
               throws Exception {
             System.out.println("step1 was executed");
-            return RepeatStatus.FINISHED;
+            throw new RuntimeException("step1 was faild");
+//            return RepeatStatus.FINISHED;
           }
         })
         .allowStartIfComplete(true)
@@ -68,8 +107,8 @@ public class JobConfiguration {
           @Override
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
               throws Exception {
-            System.out.println("step1 was executed");
-            throw new RuntimeException("step2 failed");
+            System.out.println("step2 was executed");
+            return RepeatStatus.FINISHED;
           }
         })
         .startLimit(3)
