@@ -1,0 +1,22 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: eventsourcing-cqrs-query
+  datasource:
+    hikari:
+      url: jdbc:h2:tcp://localhost/~/testcase
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+axon:
+  serializer:
+    general: xstream
+  axonserver:
+    servers: localhost:8124
