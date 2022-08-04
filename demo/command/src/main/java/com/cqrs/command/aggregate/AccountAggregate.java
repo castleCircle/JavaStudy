@@ -43,6 +43,7 @@ public class AccountAggregate {
     if(command.getAmount() <= 0) throw new IllegalStateException("amount >= 0");
     apply(new DepositMoneyEvent(command.getHolderID(), command.getAccountID(), command.getAmount()));
   }
+
   @EventSourcingHandler
   protected void depositMoney(DepositMoneyEvent event){
     log.debug("applying {}",event);

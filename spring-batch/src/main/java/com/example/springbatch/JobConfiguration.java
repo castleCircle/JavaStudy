@@ -46,7 +46,11 @@ public class JobConfiguration {
   public Job batchJob() {
     return jobBuilderFactory.get("batchJob")
         .start(step1())
-        .next(step2())
+        .on("FAILED")
+        .to(step2())
+        .on("PASS")
+        .stop()
+        .end()
         .build();
   }
 
@@ -58,6 +62,7 @@ public class JobConfiguration {
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
               throws Exception {
             System.out.println("step1 was executed");
+            contribution.getStepExecution().setExitStatus(ExitStatus.FAILED);
             return RepeatStatus.FINISHED;
           }
         })
@@ -72,10 +77,10 @@ public class JobConfiguration {
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
               throws Exception {
             System.out.println("step2 was executed");
-            contribution.setExitStatus(ExitStatus.FAILED);
             return RepeatStatus.FINISHED;
           }
         })
+        .listener(new PassCheckingListener())
         .build();
   }
 }
