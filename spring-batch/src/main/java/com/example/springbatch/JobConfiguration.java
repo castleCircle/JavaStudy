@@ -46,22 +46,25 @@ public class JobConfiguration {
   @Bean
   public Job batchJob() {
     return jobBuilderFactory.get("batchJob")
-        .incrementer(new RunIdIncrementer())
-        .start(step())
-        .next(decider())
-        .from(decider()).on("ODD").to(oddStep())
-        .from(decider()).on("EVEN").to(evenStep())
+        .start(flow())
+        .next(step3())
         .end()
         .build();
   }
 
   @Bean
-  public JobExecutionDecider decider(){
-    return new CustomerDecider();
+  public Flow flow(){
+    FlowBuilder<Flow> flowBuilder = new FlowBuilder<>("flow");
+    flowBuilder.start(step1())
+        .next(step2())
+        .end();
+
+    return flowBuilder.build();
   }
 
+
   @Bean
-  public Step step(){
+  public Step step1(){
     return stepBuilderFactory.get("step")
         .tasklet(new Tasklet() {
           @Override
@@ -75,13 +78,13 @@ public class JobConfiguration {
   }
 
   @Bean
-  public Step evenStep(){
-    return stepBuilderFactory.get("evenStep")
+  public Step step2(){
+    return stepBuilderFactory.get("step2")
         .tasklet(new Tasklet() {
           @Override
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
               throws Exception {
-            System.out.println("evenStep was executed");
+            System.out.println("step2 was executed");
             return RepeatStatus.FINISHED;
           }
         })
@@ -89,13 +92,13 @@ public class JobConfiguration {
   }
 
   @Bean
-  public Step oddStep(){
-    return stepBuilderFactory.get("oddStep")
+  public Step step3(){
+    return stepBuilderFactory.get("step3")
         .tasklet(new Tasklet() {
           @Override
           public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
               throws Exception {
-            System.out.println("oddStep was executed");
+            System.out.println("step3 was executed");
             return RepeatStatus.FINISHED;
           }
         })
