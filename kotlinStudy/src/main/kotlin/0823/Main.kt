@@ -1,9 +1,14 @@
-package `0702`
+package `0823`
 
 import java.io.Serializable
 
+var x = 5
 
 fun main(){
+
+    x+= 1
+    println(x)
+
     val name = "utils"
     println(name)
 
@@ -28,9 +33,6 @@ fun main(){
 
     val test5 = Test("test1",200)
     println(test5)
-
-    var createPerson = utils.util.create1("10")
-    println(createPerson)
 
 }
 
