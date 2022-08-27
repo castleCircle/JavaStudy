@@ -18,4 +18,6 @@ fun main(){
 
     println(length)
 
+    Thread.sleep(100)
+
 }
