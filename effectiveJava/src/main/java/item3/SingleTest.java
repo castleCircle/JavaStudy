@@ -1,10 +1,7 @@
 package item3;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class SingleTest {
 
   public static void main(String[] args)

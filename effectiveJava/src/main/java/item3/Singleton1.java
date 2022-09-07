@@ -1,8 +1,6 @@
 package item3;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class Singleton1 {
 
   public static final Singleton1 singleton = new Singleton1();

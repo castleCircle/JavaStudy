@@ -1,8 +1,6 @@
 package item1;
 
-import lombok.ToString;
 
-@ToString
 public class Book {
 
   private String name;

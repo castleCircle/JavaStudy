@@ -1,9 +1,6 @@
 package item2;
 
 
-import lombok.ToString;
-
-@ToString
 public class NutritionFacts {
 
   private final int calories;
