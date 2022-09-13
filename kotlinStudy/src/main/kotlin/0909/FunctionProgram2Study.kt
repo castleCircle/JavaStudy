@@ -27,9 +27,12 @@ fun main(){
     println("bb")
     }
 
+    println("====TEST====")
+
     arg2Test{a:String,b:String ->
         println(a.length)
-        b.first()
+//        b.first()
+        a.first()
     }
 
     var anonymous = fun(q:Int,w:Int) = q+w
