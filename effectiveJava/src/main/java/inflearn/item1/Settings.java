@@ -12,13 +12,13 @@ public class Settings {
 
   private static final Settings SETTINGS = new Settings();
 
-  public static Settings newInstance(){
+  public static Settings getInstance(){
     return SETTINGS;
   }
 
   public static void main(String[] args) {
-    System.out.println(Settings.newInstance());
-    System.out.println(Settings.newInstance());
+    System.out.println(Settings.getInstance());
+    System.out.println(Settings.getInstance());
 
     Boolean.valueOf(true);
   }
