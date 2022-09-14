@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="34e44f35-d48a-4ee5-9206-a45ec809be65" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../kotlinStudy/src/main/kotlin/0914/Student.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/api.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/CommandApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/aggregate/AccountAggregate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/aggregate/HolderAggregate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/commands/AccountCreationCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/commands/DepositMoneyCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/commands/HolderCreationCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/commands/WithdrawMoneyCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/config/AxonConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/controller/TransactionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/dto/AccountDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/dto/DepositDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/dto/HolderDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/dto/TransactionDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/dto/WithdrawalDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/service/TransactionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/java/com/cqrs/command/service/TransactionServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/command/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/common/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/common/src/main/java/com/cqrs/events/AccountCreationEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/common/src/main/java/com/cqrs/events/DepositMoneyEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/common/src/main/java/com/cqrs/events/HolderCreationEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/common/src/main/java/com/cqrs/events/WithdrawMoneyEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/query/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/query/src/main/java/com/cqrs/query/QueryApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/query/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/settings.gradle" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2El9629osmkaEXzhBWsmeuYhEhG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle.kts" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.kotlin" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.JavaGetterSetterExample">
+    <configuration name="JavaGetterSetterExample (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.kotlinJava.JavaGetterSetterExample" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.kotlinJava.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaGetterSetterExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.kotlin.JavaGetterSetterExample" />
+      <module name="kotlin.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.kotlin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KotlinApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="kotlin.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.kotlin.KotlinApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.JavaGetterSetterExample (1)" />
+        <item itemvalue="Application.JavaGetterSetterExample" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34e44f35-d48a-4ee5-9206-a45ec809be65" name="Changes" comment="" />
+      <created>1663159125058</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1663159125058</updated>
+      <workItem from="1663159127124" duration="1092000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/kotlin/JavaGetterSetterExample.java</url>
+          <line>6</line>
+          <properties class="com.example.kotlinJava.JavaGetterSetterExample" method="main">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
