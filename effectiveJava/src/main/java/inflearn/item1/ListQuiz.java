@@ -18,7 +18,6 @@ public class ListQuiz {
     System.out.println(numbers);
 
     Comparator<Integer> desc = (o1,o2) -> o2 - o1;
-
     numbers.sort(desc);
 
     System.out.println(numbers);
