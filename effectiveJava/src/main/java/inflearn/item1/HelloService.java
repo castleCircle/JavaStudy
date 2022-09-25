@@ -17,4 +17,22 @@ public interface HelloService {
     System.out.println(ko.hello());
   }
 
+  static public String hi(){
+    prepareMessage();
+    return "hi";
+  }
+
+  static private void prepareMessage(){
+    prepareMessage();
+  }
+
+  static String hi1(){
+    prepareMessage();
+    return "hi2";
+  }
+
+  default String bye(){
+    return "bye";
+  }
+
 }
