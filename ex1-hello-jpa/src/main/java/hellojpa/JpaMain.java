@@ -20,19 +20,13 @@ public class JpaMain {
 
     try{
 
-      Team team = new Team();
-      team.setName("teamA");
-      em.persist(team);
+      Movie movie = new Movie();
+      movie.setDirector("aaa");
+      movie.setActor("bbb");
+      movie.setName("바람과함께");
+      movie.setPrice(1000);
 
-      Member member = new Member();
-      member.setUsername("member1");
-      em.persist(member);
-
-      em.flush();
-      em.clear();
-
-      System.out.println("=====1");
-      final Member member1 = em.find(Member.class, 2L);
+      em.persist(movie);
 
       tx.commit();
     }catch(Exception e){
