@@ -20,15 +20,16 @@ public class JpaMain {
 
     try{
 
-      Movie movie = new Movie();
-      movie.setDirector("aaa");
-      movie.setActor("bbb");
-      movie.setName("바람과함께");
-      movie.setPrice(1000);
+    Member member = new Member();
+    member.setUsername("member");
+    member.setHomeAddress(new Address("city","street","10000"));
 
-      em.persist(movie);
+    member.getFavoriteFoods().add("치킨");
+    member.getFavoriteFoods().add("족발");
 
-      tx.commit();
+    em.persist(member);
+
+    tx.commit();
     }catch(Exception e){
       tx.rollback();
     }finally {
