@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,62 +8,52 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import jpabook.jpashop.domain.item.Item;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.aspectj.weaver.ast.Or;
 
 @Entity
-public class OrderItem extends BaseEntity{
+@Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class OrderItem {
 
   @Id @GeneratedValue
-  @Column(name = "ORDER_ITEM_ID")
+  @Column(name = "order_item_id")
   private Long id;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name="ORDER_ID")
-  private Order order;
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name="ITEM_ID")
+  @JoinColumn(name="item_id")
   private Item item;
+
+  @JsonIgnore
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "order_id")
+  private Order order;
 
   private int orderPrice;
   private int count;
 
-  public Long getId() {
-    return id;
+  //== 생성 메서드 ==//
+  public static OrderItem createOrderItem(Item item,int orderPrice,int count){
+    OrderItem orderItem = new OrderItem();
+    orderItem.setItem(item);
+    orderItem.setOrderPrice(orderPrice);
+    orderItem.setCount(count);
+
+    item.removeStock(count);
+    return orderItem;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+  //==비지니스 로직==//
+  public void cancel() {
+    getItem().addStock(count);
   }
 
-  public Order getOrder() {
-    return order;
-  }
-
-  public void setOrder(Order order) {
-    this.order = order;
-  }
-
-  public Item getItem() {
-    return item;
-  }
-
-  public void setItem(Item item) {
-    this.item = item;
-  }
-
-  public int getOrderPrice() {
-    return orderPrice;
-  }
-
-  public void setOrderPrice(int orderPrice) {
-    this.orderPrice = orderPrice;
-  }
-
-  public int getCount() {
-    return count;
-  }
-
-  public void setCount(int count) {
-    this.count = count;
+  //==조회 로직==//
+  public int getTotalPrice() {
+    return  getOrderPrice() * getCount();
   }
 }

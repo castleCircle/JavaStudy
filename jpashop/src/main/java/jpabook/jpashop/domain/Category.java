@@ -2,6 +2,7 @@ package jpabook.jpashop.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,28 +12,37 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import jpabook.jpashop.domain.item.Item;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-public class Category extends BaseEntity{
+@Getter @Setter
+public class Category {
 
-  @Id
-  @GeneratedValue
+  @Id @GeneratedValue
+  @Column(name = "category_id")
   private Long id;
 
   private String name;
 
+  @ManyToMany
+  @JoinTable(name = "category_item",
+      joinColumns = @JoinColumn(name="categorY_id"),
+      inverseJoinColumns = @JoinColumn(name = "item_id")
+  )
+  private List<Item> items = new ArrayList<>();
+
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name="PARENT_ID")
+  @JoinColumn(name="parent_id")
   private Category parent;
 
   @OneToMany(mappedBy = "parent")
   private List<Category> child = new ArrayList<>();
 
-  @ManyToMany
-  @JoinTable(name="CATEGORY_ITEM",
-      joinColumns = @JoinColumn(name="CATEGORY_ID"),
-      inverseJoinColumns = @JoinColumn(name="ITEM_ID")
-  )
-  private List<Item> items = new ArrayList<>();
+  public void addChildCategory(Category child){
+    this.child.add(child);
+    child.setParent(this);
+  }
 
 }

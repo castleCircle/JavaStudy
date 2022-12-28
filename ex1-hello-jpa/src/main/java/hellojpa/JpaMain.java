@@ -20,16 +20,31 @@ public class JpaMain {
 
     try{
 
-    Member member = new Member();
-    member.setUsername("member");
-    member.setHomeAddress(new Address("city","street","10000"));
+      Atest a = new Atest();
+      a.setName("a");
 
-    member.getFavoriteFoods().add("치킨");
-    member.getFavoriteFoods().add("족발");
+      Atest aa = new Atest();
+      aa.setName("aaa");
 
-    em.persist(member);
+      Btest b = new Btest();
 
-    tx.commit();
+      b.getAtestList().add(a);
+      b.getAtestList().add(aa);
+
+
+      em.persist(a);
+      em.persist(aa);
+
+      em.persist(b);
+
+      em.flush();
+      em.clear();
+
+      System.out.println("==================");
+      final Btest btest = em.find(Btest.class, 3L);
+      System.out.println(btest.getAtestList().size());
+
+      tx.commit();
     }catch(Exception e){
       tx.rollback();
     }finally {

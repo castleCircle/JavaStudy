@@ -1,18 +1,25 @@
 package com.example.springbatch;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.sql.DataSource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
+import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.item.ItemProcessor;
+import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.item.adapter.ItemReaderAdapter;
+import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuilder;
 import org.springframework.batch.item.support.ListItemReader;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,34 +34,22 @@ public class ChunkConfiguration {
   private final StepBuilderFactory stepBuilderFactory;
 
   @Bean
-  public Job batchJob() {
-    return jobBuilderFactory.get("batchJob")
+  public Job job(){
+    return jobBuilderFactory.get("job")
         .start(step1())
         .next(step2())
-        .incrementer(new RunIdIncrementer())
-        .listener(new JobListener())
         .build();
   }
-
 
   @Bean
   public Step step1(){
     return stepBuilderFactory.get("step1")
-        .<String,String>chunk(5)
-        .reader(new ListItemReader<>(Arrays.asList("item1","item2","item3","item4","item5")))
-        .processor(new ItemProcessor<String, String>() {
+        .tasklet(new Tasklet() {
           @Override
-          public String process(String item) throws Exception {
-            Thread.sleep(300);
-            System.out.println("item="+item);
-            return "my" + item;
-          }
-        })
-        .writer(new ItemWriter<String>() {
-          @Override
-          public void write(List<? extends String> items) throws Exception {
-            Thread.sleep(300);
-            System.out.println(items);
+          public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
+              throws Exception {
+            System.out.println("step1 was executed");
+            return RepeatStatus.FINISHED;
           }
         })
         .build();
@@ -63,22 +58,17 @@ public class ChunkConfiguration {
   @Bean
   public Step step2(){
     return stepBuilderFactory.get("step2")
-        .<String,String>chunk(3)
-        .reader(new ListItemReader<>(Arrays.asList("age1","age2","age3","age4","age5")))
-        .processor(new ItemProcessor<String, String>() {
+        .tasklet(new Tasklet() {
           @Override
-          public String process(String item) throws Exception {
-            return "my" + item;
-          }
-        })
-        .writer(new ItemWriter<String>() {
-          @Override
-          public void write(List<? extends String> items) throws Exception {
-            System.out.println(items);
+          public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
+              throws Exception {
+            System.out.println("step2 was executed");
+            return RepeatStatus.FINISHED;
           }
         })
         .build();
   }
+
 
 
 }

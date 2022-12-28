@@ -1,0 +1,5 @@
+rootProject.name = 'multi-study'
+include 'base'
+include 'common'
+include 'front'
+
