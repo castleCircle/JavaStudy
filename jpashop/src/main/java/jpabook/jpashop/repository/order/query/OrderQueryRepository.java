@@ -9,7 +9,7 @@ import jpabook.jpashop.domain.OrderItem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@ㄱR
 @RequiredArgsConstructor
 public class OrderQueryRepository {
 
