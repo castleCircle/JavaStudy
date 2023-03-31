@@ -40,7 +40,7 @@ public class 수식_최대화 {
           }
         }
       }
-      
+
       answer = Math.max(answer,Math.abs(Long.parseLong(subList.get(0))));
     }
 
