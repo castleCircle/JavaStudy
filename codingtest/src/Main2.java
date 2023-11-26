@@ -1,13 +1,16 @@
 /**
- * N으로 속도차가 남
+ * 1부터 자연수를 이어쓰면 12345678910111213..가 됩니다. 이렇게 이어쓴 숫자를 A라 할떄, n 번째에 위치하는 숫자를 반환하는 함수
+ *
+ * n:5 , result:  5
+ * n:15 , result:  2
  */
 public class Main2 {
 
   public static void main(String[] args) {
 
 
-    System.out.println(solution(5));
-    System.out.println(solution(15));
+//    System.out.println(solution(5));
+//    x`System.out.println(solution(15));`
   }
 
   public static int solution(long n){
