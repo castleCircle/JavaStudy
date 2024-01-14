@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0906143e-82da-4bee-94a7-2b72013a5367" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240110/DefaultExceptionHandlerExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240110/ThreadExceptionExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240110/ThreadPriorityAPIExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240110/ThreadPriorityExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240110/UncaughtExceptionHandlerExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240113/FlagThreadStopExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240113/FlagThreadStopExample2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240113/InturruptedThreadStopExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240113/IsInturruptedThreadStopExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240114/DaemonThreadLifeCycleExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240114/UserAndDaemonInhreitanceExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240114/UserThreadLifeCycleExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
     </list>
@@ -64,17 +68,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="wony20240113" />
       <recent name="wony20240109" />
       <recent name="wony20240106" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UncaughtExceptionHandlerExample">
-    <configuration name="DefaultExceptionHandlerExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240110.DefaultExceptionHandlerExample" />
+  <component name="RunManager" selected="Application.UserAndDaemonInhreitanceExample">
+    <configuration name="DaemonThreadLifeCycleExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240114.DaemonThreadLifeCycleExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240110.*" />
+          <option name="PATTERN" value="wony20240114.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -82,12 +87,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadExceptionExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240110.ThreadExceptionExample" />
+    <configuration name="InturruptedThreadStopExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240113.InturruptedThreadStopExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240110.*" />
+          <option name="PATTERN" value="wony20240113.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,12 +100,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadPriorityAPIExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240110.ThreadPriorityAPIExample" />
+    <configuration name="IsInturruptedThreadStopExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240113.IsInturruptedThreadStopExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240110.*" />
+          <option name="PATTERN" value="wony20240113.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,12 +113,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadPriorityExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240110.ThreadPriorityExample" />
+    <configuration name="UserAndDaemonInhreitanceExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240114.UserAndDaemonInhreitanceExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240110.*" />
+          <option name="PATTERN" value="wony20240114.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,12 +126,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UncaughtExceptionHandlerExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240110.UncaughtExceptionHandlerExample" />
+    <configuration name="UserThreadLifeCycleExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240114.UserThreadLifeCycleExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240110.*" />
+          <option name="PATTERN" value="wony20240114.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UncaughtExceptionHandlerExample" />
-        <item itemvalue="Application.DefaultExceptionHandlerExample" />
-        <item itemvalue="Application.ThreadExceptionExample" />
-        <item itemvalue="Application.ThreadPriorityExample" />
-        <item itemvalue="Application.ThreadPriorityAPIExample" />
+        <item itemvalue="Application.UserAndDaemonInhreitanceExample" />
+        <item itemvalue="Application.DaemonThreadLifeCycleExample" />
+        <item itemvalue="Application.UserThreadLifeCycleExample" />
+        <item itemvalue="Application.InturruptedThreadStopExample" />
+        <item itemvalue="Application.IsInturruptedThreadStopExample" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +162,7 @@
       <workItem from="1703078843703" duration="97000" />
       <workItem from="1703112802910" duration="1198000" />
       <workItem from="1704325783274" duration="23000" />
-      <workItem from="1704325835828" duration="15645000" />
+      <workItem from="1704325835828" duration="22400000" />
     </task>
     <servers />
   </component>
