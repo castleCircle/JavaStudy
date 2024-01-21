@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0906143e-82da-4bee-94a7-2b72013a5367" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240116/InheritableThreadLocalExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240116/ThreadPoolThreadLocalExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240118/MultiThreadExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240120/CriticalSectionExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240120/NonRaceConditionExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240120/RaceConditionExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/Mutex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/MutexExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/SharedData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/test/MutexTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/test/MutexTestExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/test/SharedDataTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/BinarySemaphore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/BinarySemaphoreExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/CommonSemaphore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/CountingSemaphoneExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/CountingSemaphore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -32,6 +37,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -71,7 +77,33 @@
       <recent name="wony20240106" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CriticalSectionExample">
+  <component name="RunManager" selected="Application.CountingSemaphoneExample">
+    <configuration name="BinarySemaphoreExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240122.BinarySemaphoreExample" />
+      <module name="MultiThreadTutorial.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wony20240122.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CountingSemaphoneExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240122.CountingSemaphoneExample" />
+      <module name="MultiThreadTutorial.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wony20240122.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CriticalSectionExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="wony20240120.CriticalSectionExample" />
       <module name="MultiThreadTutorial.main" />
@@ -85,12 +117,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InheritableThreadLocalExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240116.InheritableThreadLocalExample" />
+    <configuration name="MutexExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240121.MutexExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240116.*" />
+          <option name="PATTERN" value="wony20240121.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,38 +130,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadLocalExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240116.ThreadLocalExample" />
+    <configuration name="MutexTestExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240121.test.MutexTestExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240116.logger.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ThreadLocalLoggerExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240116.logger.ThreadLocalLoggerExample" />
-      <module name="MultiThreadTutorial.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="wony20240116.logger.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ThreadPoolThreadLocalExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240116.ThreadPoolThreadLocalExample" />
-      <module name="MultiThreadTutorial.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="wony20240116.*" />
+          <option name="PATTERN" value="wony20240121.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CountingSemaphoneExample" />
+        <item itemvalue="Application.BinarySemaphoreExample" />
+        <item itemvalue="Application.MutexTestExample" />
+        <item itemvalue="Application.MutexExample" />
         <item itemvalue="Application.CriticalSectionExample" />
-        <item itemvalue="Application.InheritableThreadLocalExample" />
-        <item itemvalue="Application.ThreadPoolThreadLocalExample" />
-        <item itemvalue="Application.ThreadLocalLoggerExample" />
-        <item itemvalue="Application.ThreadLocalExample" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +167,7 @@
       <workItem from="1703112802910" duration="1198000" />
       <workItem from="1704325783274" duration="23000" />
       <workItem from="1704325835828" duration="27033000" />
-      <workItem from="1705445535914" duration="5675000" />
+      <workItem from="1705445535914" duration="11438000" />
     </task>
     <servers />
   </component>
