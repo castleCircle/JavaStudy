@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0906143e-82da-4bee-94a7-2b72013a5367" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/Mutex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/MutexExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/SharedData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/test/MutexTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/test/MutexTestExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240121/test/SharedDataTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/BinarySemaphore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/BinarySemaphoreExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/CommonSemaphore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/CountingSemaphoneExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240122/CountingSemaphore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240124/ConditionSynchronizationExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240124/MutualExclusionExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../codingtest/src/acmpic/solve4963.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -77,13 +69,26 @@
       <recent name="wony20240106" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CountingSemaphoneExample">
+  <component name="RunManager" selected="Application.ConditionSynchronizationExample">
     <configuration name="BinarySemaphoreExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="wony20240122.BinarySemaphoreExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="wony20240122.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConditionSynchronizationExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240124.ConditionSynchronizationExample" />
+      <module name="MultiThreadTutorial.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wony20240124.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -104,32 +109,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CriticalSectionExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240120.CriticalSectionExample" />
-      <module name="MultiThreadTutorial.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="wony20240120.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MutexExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240121.MutexExample" />
-      <module name="MultiThreadTutorial.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="wony20240121.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MutexTestExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="wony20240121.test.MutexTestExample" />
       <module name="MultiThreadTutorial.main" />
@@ -143,13 +122,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MutualExclusionExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240124.MutualExclusionExample" />
+      <module name="MultiThreadTutorial.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wony20240124.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ConditionSynchronizationExample" />
+        <item itemvalue="Application.MutualExclusionExample" />
         <item itemvalue="Application.CountingSemaphoneExample" />
         <item itemvalue="Application.BinarySemaphoreExample" />
         <item itemvalue="Application.MutexTestExample" />
-        <item itemvalue="Application.MutexExample" />
-        <item itemvalue="Application.CriticalSectionExample" />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +159,8 @@
       <workItem from="1703112802910" duration="1198000" />
       <workItem from="1704325783274" duration="23000" />
       <workItem from="1704325835828" duration="27033000" />
-      <workItem from="1705445535914" duration="11438000" />
+      <workItem from="1705445535914" duration="14388000" />
+      <workItem from="1706052284644" duration="427000" />
     </task>
     <servers />
   </component>
@@ -245,6 +238,14 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/wony20240122/CountingSemaphoneExample.java</url>
+          <line>4</line>
+          <properties class="wony20240122.CountingSemaphoneExample" method="main">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
