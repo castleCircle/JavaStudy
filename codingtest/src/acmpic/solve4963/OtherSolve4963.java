@@ -30,15 +30,17 @@ public class OtherSolve4963 {
       int tempY = t.ty;
       int tempX = t.tx;
 
-      temp[tempY][tempX] = count;
 
       for(int i=0;i<8;i++){
 
         int iy = tempY + y[i];
         int ix = tempX + x[i];
 
-        if(maps[iy][ix] == 1 && temp[iy][ix] == 0){
-          points.add(new Point(iy,ix));
+        if(iy >= 0 && iy < maps.length && ix >=0 && ix < maps[0].length) {
+          if (maps[iy][ix] == 1 && temp[iy][ix] == 0) {
+            points.add(new Point(iy, ix));
+            temp[iy][ix] = count;
+          }
         }
       }
 
@@ -73,6 +75,7 @@ public class OtherSolve4963 {
         for(int j=0;j<w;j++){
           if(maps[i][j] == 1 && temp[i][j] == 0){
             count++;
+            dfs(temp,maps,i,j,count);
           }
 
         }
