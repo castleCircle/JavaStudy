@@ -1,4 +1,4 @@
-package acmpic;
+package acmpic.solve4963;
 
 import java.util.Scanner;
 
