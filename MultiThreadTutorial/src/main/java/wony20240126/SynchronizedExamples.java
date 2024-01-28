@@ -7,7 +7,6 @@ public class SynchronizedExamples {
 
   public synchronized void instanceMethod(){
     instanceCount++;
-    staticCount++;
     System.out.println("인스턴스 메소드 동기화:" + instanceCount);
   }
 
@@ -19,7 +18,6 @@ public class SynchronizedExamples {
   public void instanceBlock(){
     synchronized (this){
       instanceCount++;
-      staticCount++;
       System.out.println("인스턴스 block 동기화:" + instanceCount);
     }
   }
