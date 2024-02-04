@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0906143e-82da-4bee-94a7-2b72013a5367" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240201/VolatileExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240203/DeadlockOrderExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240203/LockExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240203/LockInterruptiblyExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240203/LockOrderExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240203/LockStateExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240203/TryLockExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wony20240203/TryLockWithTimeoutExample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wony20240201/VolatileExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wony20240201/VolatileExample.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +66,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -72,13 +80,13 @@
       <recent name="wony20240106" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.VolatileExample">
-    <configuration name="InstanceBlockSynchronizedExamples2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240129.InstanceBlockSynchronizedExamples2" />
+  <component name="RunManager" selected="Application.LockInterruptiblyExample">
+    <configuration name="LockInterruptiblyExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240203.LockInterruptiblyExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240129.*" />
+          <option name="PATTERN" value="wony20240203.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -86,12 +94,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProducerConsumerExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240201.ProducerConsumerExample" />
+    <configuration name="LockOrderExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240203.LockOrderExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240201.*" />
+          <option name="PATTERN" value="wony20240203.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,12 +107,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StaticBlockSynchronizedExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240129.StaticBlockSynchronizedExamples" />
+    <configuration name="LockStateExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240203.LockStateExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240129.*" />
+          <option name="PATTERN" value="wony20240203.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,12 +120,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StaticBlockSynchronizedTestExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240129.StaticBlockSynchronizedTestExamples" />
+    <configuration name="TryLockExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240203.TryLockExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240129.*" />
+          <option name="PATTERN" value="wony20240203.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,12 +133,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VolatileExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="wony20240201.VolatileExample" />
+    <configuration name="TryLockWithTimeoutExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="wony20240203.TryLockWithTimeoutExample" />
       <module name="MultiThreadTutorial.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="wony20240201.*" />
+          <option name="PATTERN" value="wony20240203.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.VolatileExample" />
-        <item itemvalue="Application.ProducerConsumerExample" />
-        <item itemvalue="Application.StaticBlockSynchronizedTestExamples" />
-        <item itemvalue="Application.StaticBlockSynchronizedExamples" />
-        <item itemvalue="Application.InstanceBlockSynchronizedExamples2" />
+        <item itemvalue="Application.LockInterruptiblyExample" />
+        <item itemvalue="Application.TryLockWithTimeoutExample" />
+        <item itemvalue="Application.TryLockExample" />
+        <item itemvalue="Application.LockStateExample" />
+        <item itemvalue="Application.LockOrderExample" />
       </list>
     </recent_temporary>
   </component>
