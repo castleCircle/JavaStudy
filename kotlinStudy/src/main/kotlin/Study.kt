@@ -1,6 +1,12 @@
 import java.io.Serializable
 import java.time.Instant
 
+inline class SSN(val id:String)
+
+fun receiveSSN(ssn: SSN){
+    println("Received %ssn")
+}
+
 fun noflush(){
     println("nofluff called..")
     throw RuntimeException("qwer")
@@ -41,6 +47,18 @@ class Person(val first: String,val last: String){
     var fullName = true
     var location: String = "-"
 }
+
+class MachineOperator(val name:String){
+    fun checkin() = checkedIn++
+
+
+    companion object{
+        var checkedIn = 0
+        fun minimumBreak() = "15 minutes"
+    }
+}
+
+
 
 fun main(){
 
