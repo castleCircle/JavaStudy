@@ -1,69 +1,49 @@
-import java.io.Serializable
-import java.time.Instant
-
-inline class SSN(val id:String)
-
-fun receiveSSN(ssn: SSN){
-    println("Received %ssn")
-}
-
-fun noflush(){
-    println("nofluff called..")
-    throw RuntimeException("qwer")
-}
-
-
-fun compute(n:Int) = 0
-
-fun tryExpr(blup: Boolean): Int{
-    return try{
-        if(blup) {
-            throw RuntimeException("aa")
-        }
-        2
-    }catch(ex:Exception){
-        4
-    }finally {
-
-    }
-}
-
-fun init() : Unit{
-    return;
-}
-
-class Animal(val age: Int){
-
-    override fun equals(other: Any?): Boolean {
-        return super.equals(other)
-    }
-}
-
-open class Fruit
-class Banana: Fruit()
-class Orange: Fruit()
-
-class Person(val first: String,val last: String){
-    var fullName = true
-    var location: String = "-"
-}
-
-class MachineOperator(val name:String){
-    fun checkin() = checkedIn++
-
-
+class Person private constructor(
+    private val name: String,
+    private val age: Int
+){
     companion object{
-        var checkedIn = 0
-        fun minimumBreak() = "15 minutes"
+        private val MIN_AGE = 1
+        private const val MIN_AGE1 = 1
+        fun newBaby(name:String) : Person{
+            return Person(name, MIN_AGE)
+        }
     }
 }
-
-
 
 fun main(){
+    val number = 3;
+    val numbers = listOf(100,200)
+    val numbers2 = mutableListOf(100,300)
+    numbers2.add(1,2)
+    println("123".lastChar("a"))
+    println("123" lastChar2 "a")
 
-    var s = Person("12","13")
-    println(s.fullName)
-    println(s.location)
+    val fun1 = fun(data:String) : Boolean {
+        return data.length > 1
+    }
 
+    val fun2 = {data:String -> data.length > 1}
+
+//    val fun3 : (String) -> Boolean = fun()
+
+    println(fun1("a"))
+    println(fun2.invoke("b11"))
+    println(fun2("33"))
+}
+
+class Car(
+    val name: String,
+    _price: Int
+){
+    var price = _price
+    private set
+}
+
+fun String.lastChar(test : String): Char{
+    return this[this.length - 1]
+}
+
+infix fun String.lastChar2(test : String): Char{
+    return this[this.length - 1]
 }
