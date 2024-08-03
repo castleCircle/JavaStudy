@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.5.10"
     application
+    id("me.champeau.gradle.jmh") version "0.5.3"
 }
 
 group = "me.yoon"
@@ -35,4 +36,11 @@ compileKotlin.kotlinOptions {
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
     jvmTarget = "1.8"
+}
+
+jmh{
+    threads = 1
+    fork = 1
+    warmupIterations = 1
+    iterations = 1
 }
