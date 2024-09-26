@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import sample.cafekiosk.unit.beverage.Americano;
+import sample.cafekiosk.unit.beverage.Latte;
 import sample.cafekiosk.unit.order.Order;
 
 class CafeKioskTest {
@@ -73,6 +74,19 @@ class CafeKioskTest {
 //
 //    assertThat(order.getBeverages()).hasSize(1);
 //  }
+
+
+  @Test
+  void calculateTotalPrice(){
+    CafeKiosk cafeKiosk = new CafeKiosk();
+    Americano americano = new Americano();
+
+    Latte latte = new Latte();
+
+    cafeKiosk.add(americano);
+    cafeKiosk.add(latte);
+
+  }
 
   @Test
   void createOrderWithCurrentTime(){
