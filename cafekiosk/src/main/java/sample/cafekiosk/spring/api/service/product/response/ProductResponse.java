@@ -3,7 +3,7 @@ package sample.cafekiosk.spring.api.service.product.response;
 import lombok.Builder;
 import lombok.Getter;
 import sample.cafekiosk.spring.domain.product.Product;
-import sample.cafekiosk.spring.domain.product.ProductSellingType;
+import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
 import sample.cafekiosk.spring.domain.product.ProductType;
 
 @Getter
@@ -12,17 +12,17 @@ public class ProductResponse {
   private Long id;
   private String productNumber;
   private ProductType type;
-  private ProductSellingType sellingType;
+  private ProductSellingStatus sellingStatus;
   private String name;
   private int price;
 
   @Builder
   private ProductResponse(Long id, String productNumber, ProductType type,
-      ProductSellingType sellingType, String name, int price) {
+      ProductSellingStatus sellingType, String name, int price) {
     this.id = id;
     this.productNumber = productNumber;
     this.type = type;
-    this.sellingType = sellingType;
+    this.sellingStatus = sellingType;
     this.name = name;
     this.price = price;
   }
@@ -32,7 +32,7 @@ public class ProductResponse {
         .id(product.getId())
         .productNumber(product.getProductNumber())
         .type(product.getType())
-        .sellingType(product.getSellingType())
+        .sellingType(product.getSellingStatus())
         .name(product.getName())
         .price(product.getPrice())
         .build();
