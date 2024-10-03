@@ -11,20 +11,18 @@ import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
+import sample.cafekiosk.spring.IntegrationTestSupport;
 
-//@SpringBootTest
-@ActiveProfiles("test")
-@DataJpaTest
-class ProductRepositoryTest {
+@Transactional
+class ProductRepositoryTest extends IntegrationTestSupport {
 
   @Autowired
   private ProductRepository productRepository;
 
   @DisplayName("원하는 판매상태를 가진 상품들을 조회한다.")
   @Test
-  void findAllBySellingStatusIn(){
+  void findAllBySellingStatusIn() {
 
     final Product product1 = Product.builder()
         .productNumber("001")
@@ -50,24 +48,24 @@ class ProductRepositoryTest {
         .price(7000)
         .build();
 
-    productRepository.saveAll(List.of(product1,product2,product3));
+    productRepository.saveAll(List.of(product1, product2, product3));
 
     //
     final List<Product> products = productRepository.findAllBySellingStatusIn(
         List.of(SELLING, HOLD));
 
     assertThat(products).hasSize(2)
-        .extracting("productNumber","name","sellingStatus")
+        .extracting("productNumber", "name", "sellingStatus")
         .containsExactlyInAnyOrder(
-            Tuple.tuple("001","아메리카노",SELLING),
-            Tuple.tuple("002","카페라떼",HOLD)
+            Tuple.tuple("001", "아메리카노", SELLING),
+            Tuple.tuple("002", "카페라떼", HOLD)
         );
   }
 
 
   @DisplayName("상품번호 리스트로 상품들을 조회한다.")
   @Test
-  void findAllByProductNumberIn(){
+  void findAllByProductNumberIn() {
 
     final Product product1 = Product.builder()
         .productNumber("001")
@@ -93,29 +91,31 @@ class ProductRepositoryTest {
         .price(7000)
         .build();
 
-    productRepository.saveAll(List.of(product1,product2,product3));
+    productRepository.saveAll(List.of(product1, product2, product3));
 
     //
-    final List<Product> products = productRepository.findAllByProductNumberIn(List.of("001","002"));
+    final List<Product> products = productRepository.findAllByProductNumberIn(
+        List.of("001", "002"));
 
     assertThat(products).hasSize(2)
-        .extracting("productNumber","name","sellingStatus")
+        .extracting("productNumber", "name", "sellingStatus")
         .containsExactlyInAnyOrder(
-            Tuple.tuple("001","아메리카노",SELLING),
-            Tuple.tuple("002","카페라떼",HOLD)
+            Tuple.tuple("001", "아메리카노", SELLING),
+            Tuple.tuple("002", "카페라떼", HOLD)
         );
   }
 
   @DisplayName("가장 마지막으로 저장한 상품의 상품번호를 읽어온다.")
   @Test
-  void findLatestProductNumber(){
+  void findLatestProductNumber() {
 
     String targetProductNumber = "003";
-    final Product product1 = createProduct("001",HANDMADE,SELLING,"아메리카노",4000);
-    final Product product2 = createProduct("002",HANDMADE,HOLD,"카페라떼",4500);
-    final Product product3 = createProduct(targetProductNumber,HANDMADE,STOP_SELLING,"팥빙수",7000);
+    final Product product1 = createProduct("001", HANDMADE, SELLING, "아메리카노", 4000);
+    final Product product2 = createProduct("002", HANDMADE, HOLD, "카페라떼", 4500);
+    final Product product3 = createProduct(targetProductNumber, HANDMADE, STOP_SELLING, "팥빙수",
+        7000);
 
-    productRepository.saveAll(List.of(product1,product2,product3));
+    productRepository.saveAll(List.of(product1, product2, product3));
 
     //when
     final String latestProductNumber = productRepository.findLatestProductNumber();
@@ -126,7 +126,7 @@ class ProductRepositoryTest {
 
   @DisplayName("가장 마지막으로 저장한 상품의 상품번호를 읽어올 때, 상품이 하나도 없는 경우에는 null을 반환한다.")
   @Test
-  void findLatestProductNumberWhenProductIsEmpty(){
+  void findLatestProductNumberWhenProductIsEmpty() {
 
     //when
     final String latestProductNumber = productRepository.findLatestProductNumber();

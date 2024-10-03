@@ -11,8 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import sample.cafekiosk.spring.IntegrationTestSupport;
 import sample.cafekiosk.spring.api.service.order.request.OrderCreateServiceRequest;
 import sample.cafekiosk.spring.api.service.order.response.OrderResponse;
 import sample.cafekiosk.spring.domain.order.OrderProductRepository;
@@ -23,10 +22,8 @@ import sample.cafekiosk.spring.domain.product.ProductType;
 import sample.cafekiosk.spring.domain.stock.Stock;
 import sample.cafekiosk.spring.domain.stock.StockRepository;
 
-@ActiveProfiles("test")
-//@Transactional
-@SpringBootTest
-class OrderServiceTest {
+
+class OrderServiceTest extends IntegrationTestSupport {
 
   @Autowired
   private ProductRepository productRepository;
@@ -51,6 +48,16 @@ class OrderServiceTest {
     orderProductRepository.deleteAllInBatch();
     productRepository.deleteAllInBatch();
     orderRepository.deleteAllInBatch();
+
+    //deleteAll은 데이터를 건건이 지우고 또한 매핑 관의 관계있는 애들을 찾아서 지운다. 그래서 느리다.
+    //그래서 deleteAllInBatch()가 더 효율적이다.
+    //트랜잭션이 여러개 겹칠채는 deleteAllInBatch을 통해 직접 지우는것이 편하고
+    //트랜잭션이 하나일때는 @Transacitonal을 붙이는게 편함
+
+//    orderProductRepository.deleteAll();
+//    productRepository.deleteAll();
+//    orderRepository.deleteAll();
+
     stockRepository.deleteAllInBatch();
   }
 
