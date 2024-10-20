@@ -10,7 +10,7 @@ public class CreateCopyFile {
 
   public static void main(String[] args) throws IOException {
     String fileName = "temp/copy.dat";
-    System.out.println();
+    System.out.println("test");
     long startTime = System.currentTimeMillis();
 
     FileOutputStream fos = new FileOutputStream(fileName);
