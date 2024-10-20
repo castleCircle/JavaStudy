@@ -15,7 +15,7 @@ public class CreateFileV1 {
   public static void main(String[] args) throws IOException {
     final FileOutputStream fos = new FileOutputStream(FILE_NAME);
     long startTime = System.currentTimeMillis();
-
+    System.out.println("tte");
     for(int i=0;i<FILE_SIZE ;i++){
       fos.write(1);
     }
