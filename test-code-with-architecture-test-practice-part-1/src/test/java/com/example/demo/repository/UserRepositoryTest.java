@@ -2,7 +2,7 @@ package com.example.demo.repository;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import com.example.demo.user.model.UserStatus;
+import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.repository.UserEntity;
 import com.example.demo.user.repository.UserRepository;
 import java.util.Optional;
