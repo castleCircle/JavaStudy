@@ -4,8 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.example.demo.mock.FakeMailSender;
-import com.example.demo.user.service.port.MailSender;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CertificationServiceTest {
