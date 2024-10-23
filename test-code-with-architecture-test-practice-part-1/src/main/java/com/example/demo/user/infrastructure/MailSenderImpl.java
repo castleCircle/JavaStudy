@@ -10,14 +10,14 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class MailSenderImpl implements MailSender {
 
-  private final JavaMailSender mailSender;
+    private final JavaMailSender javaMailSender;
 
-  @Override
-  public void send(String email, String title, String content) {
-    SimpleMailMessage message = new SimpleMailMessage();
-    message.setTo(email);
-    message.setSubject(title);
-    message.setText(content);
-    mailSender.send(message);
-  }
+    @Override
+    public void send(String email, String title, String content) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject(title);
+        message.setText(content);
+        javaMailSender.send(message);
+    }
 }

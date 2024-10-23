@@ -1,54 +1,48 @@
 package com.example.demo.post.controller;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.example.demo.mock.TestContainer;
+import com.example.demo.post.controller.response.PostResponse;
 import com.example.demo.post.domain.PostCreate;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.demo.user.domain.User;
+import com.example.demo.user.domain.UserStatus;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
-import org.springframework.test.context.jdbc.SqlGroup;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-@AutoConfigureTestDatabase
-@SqlGroup({
-    @Sql(value = "/sql/post-create-controller-test-data.sql", executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
-    @Sql(value = "/sql/delete-all-data.sql", executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
-})
 public class PostCreateControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
     @Test
-    void 사용자는_게시물을_작성할_수_있다() throws Exception {
+    void 사용자는_게시물을_작성할_수_있다() {
         // given
+        TestContainer testContainer = TestContainer.builder()
+            .clockHolder(() -> 1679530673958L)
+            .build();
+        testContainer.userRepository.save(User.builder()
+            .id(1L)
+            .email("kok202@naver.com")
+            .nickname("kok202")
+            .address("Seoul")
+            .status(UserStatus.ACTIVE)
+            .certificationCode("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab")
+            .lastLoginAt(100L)
+            .build());
         PostCreate postCreate = PostCreate.builder()
             .writerId(1)
             .content("helloworld")
             .build();
 
         // when
+        ResponseEntity<PostResponse> result = testContainer.postCreateController.create(postCreate);
+
         // then
-        mockMvc.perform(
-            post("/api/posts")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(postCreate)))
-            .andExpect(status().isCreated())
-            .andExpect(jsonPath("$.id").isNumber())
-            .andExpect(jsonPath("$.content").value("helloworld"))
-            .andExpect(jsonPath("$.writer.id").isNumber())
-            .andExpect(jsonPath("$.writer.email").value("kok202@naver.com"))
-            .andExpect(jsonPath("$.writer.nickname").value("kok202"));
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(201));
+        assertThat(result.getBody()).isNotNull();
+        assertThat(result.getBody().getContent()).isEqualTo("helloworld");
+        assertThat(result.getBody().getWriter().getNickname()).isEqualTo("kok202");
+        assertThat(result.getBody().getCreatedAt()).isEqualTo(1679530673958L);
     }
 }
