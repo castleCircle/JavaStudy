@@ -42,6 +42,7 @@ public class ServerV2 {
     log("연결 종료: " + socket);
     input.close();
     output.close();
+    socket.close();
     serverSocket.close();
   }
 
