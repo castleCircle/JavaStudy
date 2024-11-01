@@ -34,7 +34,9 @@ public class ResourceCloseMainV4 {
       resourceV2.callEx(); // CAllEaception
     }catch (CallException e){
       System.out.println("ex: " + e.getMessage());
-      throw e;
+//      throw e;
+    }finally {
+      throw new RuntimeException("sfasd");
     }
   }
 
