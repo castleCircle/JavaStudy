@@ -1,4 +1,4 @@
-package network.tcp.v5;
+package network.tcp.v6;
 
 import static util.MyLogger.log;
 
@@ -6,21 +6,28 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import network.tcp.SocketCloseUtil;
 
-public class SessionV5 implements Runnable {
+public class SessionV6 implements Runnable {
 
   private final Socket socket;
+  private final DataInputStream input;
+  private final DataOutputStream output;
+  private final SessionManagerV6 sessionManager;
+  private boolean closed = false;
 
-  public SessionV5(Socket socket) {
+  public SessionV6(Socket socket, SessionManagerV6 sessionManager) throws IOException {
     this.socket = socket;
+    this.input = new DataInputStream(socket.getInputStream());
+    this.output = new DataOutputStream(socket.getOutputStream());
+    this.sessionManager = sessionManager;
+    this.sessionManager.add(this);
   }
+
 
   @Override
   public void run() {
-    try (socket;
-        DataInputStream input = new DataInputStream(socket.getInputStream());
-        DataOutputStream output = new DataOutputStream(socket.getOutputStream());
-    ) {
+    try {
       while (true) {
         final String received = input.readUTF();
         log("client -> server: " + received);
@@ -36,10 +43,21 @@ public class SessionV5 implements Runnable {
       }
     } catch (IOException e) {
       log(e);
+    } finally {
+      sessionManager.remove(this);
+      close();
     }
-
-    log("연결 종료: " + socket + " isClosed: " + socket.isClosed());
   }
 
+  // 세션 종료시 , 서버 종료시 동시에 호출될 수 있다.
+  // synchronized를 넣어도 동시 호출은 막는데 두번 호출을 막을수 없어서 boolean 값으로 제어
+  public synchronized void close() {
+    if (closed) {
+      return;
+    }
+    SocketCloseUtil.closeAll(socket, input, output);
+    closed = true;
+    log("연결 종료: " + socket);
+  }
 
 }

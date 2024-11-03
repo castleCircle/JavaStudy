@@ -1,4 +1,4 @@
-package network.tcp.v5;
+package network.tcp.v6;
 
 import static util.MyLogger.log;
 
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ClientV5 {
+public class ClientV6 {
 
   private static final int PORT = 12345;
 
