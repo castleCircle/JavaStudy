@@ -39,6 +39,7 @@ public class ClientV6 {
         log("client <- server: " + received);
       }
     } catch (IOException e) {
+      System.out.println("서버에서 죽음");
       log(e);
     }
   }
