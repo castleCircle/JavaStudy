@@ -36,7 +36,7 @@ public class CommandManagerV2 implements CommandManager {
       StringBuilder sb = new StringBuilder();
       sb.append("전체 접속자 : ").append(usernames.size()).append("\n");
       for (String username : usernames) {
-        sb.append(" - ").append(usernames).append("\n");
+        sb.append(" - ").append(username).append("\n");
       }
       session.send(sb.toString());
     } else if (totalMessage.startsWith("/exit")) {
