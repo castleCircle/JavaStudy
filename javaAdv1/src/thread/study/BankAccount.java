@@ -1,6 +1,6 @@
 package thread.study;
 
-public interface BankAccountTest {
+public interface BankAccount {
 
   boolean withdraw(int amount);
 
