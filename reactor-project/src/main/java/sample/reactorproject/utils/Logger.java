@@ -26,6 +26,7 @@ public class Logger {
   }
 
   public static void doOnRequest(Object data) {
+    log.info(" ===================== ");
     log.info("# doOnRequest(): {}", data);
   }
 
