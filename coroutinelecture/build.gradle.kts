@@ -19,4 +19,9 @@ tasks.test {
 
 kotlin {
     jvmToolchain(17)
+
 }
+
+//tasks.withType<JavaExec> {
+//    jvmArgs("-Dkotlinx.coroutines.debug")
+//}
