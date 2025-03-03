@@ -3,6 +3,7 @@ package Lec
 
 fun main() {
     val fishCage = Cage3<Fish>()
+    val goldFish = Cage3<GoldFish>()
     val animalCage: Cage3<Animal> = fishCage
 }
 
@@ -19,9 +20,5 @@ class Cage3<out T> {
 
     fun add(s : String){
 
-    }
-
-    fun add2(ss : T){
-        
     }
 }
